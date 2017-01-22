@@ -8,10 +8,9 @@
 
   Modified:
   20161128 BvdM   Create docs and make library
+  20170123 BvdM   Add on() and off()
 
   https://github.com/jabratn/SimpleIo
-
-  TODO - inherit from PulseOutput
 
 */
 
@@ -30,17 +29,27 @@ FlashOutput::FlashOutput(uint8_t arduinopin) : PulseOutput(arduinopin)
   _state = eIdle;
 }
 
+void FlashOutput::on(void)
+{
+  PulseOutput::on();
+  _state = eIdle;
+}
+
+void FlashOutput::off(void)
+{
+  PulseOutput::off();
+  _state = eIdle;
+}
+
 void FlashOutput::trigger(uint16_t period, uint8_t dutycycle)
 {
   if (dutycycle == 0)
   {
     off();
-    _state = eIdle;
   }
   else if (dutycycle >= 100)
   {
     on();
-    _state = eIdle;
   }
   else
   {

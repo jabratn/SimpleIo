@@ -12,6 +12,8 @@ class FlashOutput: public PulseOutput
   public:
     FlashOutput(void);
     FlashOutput(uint8_t arduinopin);
+    void on(void);
+    void off(void);
     void trigger(uint16_t period, uint8_t dutycycle);
     void update(void);
   private:
