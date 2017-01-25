@@ -8,6 +8,7 @@
 
   Modified:
   20161128 BvdM   Create docs and make library
+  20170126 BvdM   Default is INPUT_PULLUP, so _stablevalue and _lastvalue should be HIGH
 
   https://github.com/jabratn/SimpleIo
 
@@ -27,8 +28,8 @@ DebouncedInput::DebouncedInput(uint8_t arduinopin)
 {
   _pin = arduinopin;
   _pintype = INPUT_PULLUP;
-  _stablevalue = LOW;
-  _lastvalue = LOW;
+  _stablevalue = HIGH;
+  _lastvalue = HIGH;
   _noisedelay = 50;   // default ~50ms
 }
 
